@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
 </head>
 <body>
+
+
+
 <h1>[[${principal}]]</h1>
 <h2>[[${user.username}]]</h2>
 <h2>[[${user.dateOfBirth}]]</h2>
@@ -14,10 +16,21 @@
 <h2>[[${user.lastName}]]</h2>
 
 
+
+
 <ul>
-    <li th:each="comment : ${comment}">
-        <span th:text="${comment}"></span>
+    <li th:each="meme : ${meme}">
+        <span th:text="${meme}"></span>
     </li>
+
+
+
+    <form action="/newMeme" method="POST">
+        <h2>Add a meme</h2>
+        Comment: <input type="text" name="body">
+        <input type="submit" value="add a meme">
+    </form>
+
 
 
     <form action="/newComment" method="POST">
@@ -27,6 +40,7 @@
     </form>
 
 </ul>
+
 
 </body>
 </html>
