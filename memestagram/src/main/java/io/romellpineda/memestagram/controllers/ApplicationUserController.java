@@ -1,10 +1,8 @@
 package io.romellpineda.memestagram.controllers;
-<<<<<<< HEAD
 
 import io.romellpineda.memestagram.models.ApplicationUser;
 import io.romellpineda.memestagram.models.ApplicationUserRepository;
-=======
->>>>>>> f893bb40a8113a2187b307dcce2ae73f4fef127f
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -35,13 +33,11 @@ public class ApplicationUserController {
         ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), profilePicture, bio
                 , userCreated, firstName);
 
-        // save the user to db
         applicationUserRepository.save(newUser);
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        // send them back home
         return new RedirectView("/profile");
     }
 
@@ -52,9 +48,9 @@ public class ApplicationUserController {
 
     @GetMapping("/users/{id}")
     public String showUserDetails(@PathVariable long id, Principal p, Model m){
-        ApplicationUser theUser = applicationUserRepository.findById(id).get();
+        ApplicationUser usernameWeAreVisiting = applicationUserRepository.findById(id).get();
 
-        m.addAttribute("usernameWeAreVisiting", theUser);
+        m.addAttribute("usernameWeAreVisiting", usernameWeAreVisiting);
         m.addAttribute("principalName", p.getName());
         return "public-view";
     }
@@ -66,6 +62,4 @@ public class ApplicationUserController {
         m.addAttribute("user", loggedInUser);
         return "profile";
     }
-
-
 }
