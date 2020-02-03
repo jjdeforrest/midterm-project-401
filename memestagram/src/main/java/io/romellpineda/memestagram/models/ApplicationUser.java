@@ -17,6 +17,8 @@ public class ApplicationUser implements UserDetails {
     public long id;
 
 ///////
+    /////
+
     String username;
     String password;
     String profilePicture;
