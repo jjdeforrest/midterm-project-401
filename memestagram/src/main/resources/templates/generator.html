@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Generate your memes</h1>
+
+<td>
+    <span th:if="${displayDiv}"> Upload different picture</span>
+
+</td>
+
+    <form action="/generator" method="POST">
+        <h2>Add stuff to the picture, make a meme</h2>
+<!--        <input type="hidden" name="id" th:value="${id}">-->
+        name it: <input type="text" name="name">
+
+        Picture html: <input type="text" name="linkMeme">
+        Text to add: <input type="text" name="textToAdd">
+        <input type="submit" value="Generate a meme">
+    </form>
+
+
+
+<!--<ul>-->
+<!--    <li th:each="meme : ${meme}">-->
+<!--        <span th:text="${meme}"></span>-->
+<!--    </li>-->
+
+
+
+<!--    <form action="/newMeme" method="POST">-->
+<!--        <h2>Add a meme</h2>-->
+<!--        <input type="hidden" name="id" th:value="${id}">-->
+<!--        Comment: <input type="text" name="body">-->
+<!--        <input type="submit" value="add a meme">-->
+<!--    </form>-->
+
+
+
+<!--    <form action="/newComment" method="POST">-->
+<!--        <h2>Add a comment</h2>-->
+<!--        <input type="hidden" name="id" th:value="${id}">-->
+<!--        Comment: <input type="text" name="body">-->
+<!--        <input type="submit" value="add a comment">-->
+<!--    </form>-->
+
+<!--</ul>-->
+
+
+</body>
+</html>
