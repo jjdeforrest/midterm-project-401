@@ -15,7 +15,6 @@
 
 
 
-
 <ul>
     <li th:each="meme : ${meme}">
         <span th:text="${meme}"></span>
@@ -25,6 +24,7 @@
 
     <form action="/newMeme" method="POST">
         <h2>Add a meme</h2>
+        <input type="hidden" name="id" th:value="${id}">
         Comment: <input type="text" name="body">
         <input type="submit" value="add a meme">
     </form>
@@ -33,6 +33,7 @@
 
     <form action="/newComment" method="POST">
         <h2>Add a comment</h2>
+        <input type="hidden" name="id" th:value="${id}">
         Comment: <input type="text" name="body">
         <input type="submit" value="add a comment">
     </form>
