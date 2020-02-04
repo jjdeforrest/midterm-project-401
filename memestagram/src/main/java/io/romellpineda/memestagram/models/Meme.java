@@ -20,10 +20,33 @@ public class Meme {
 
     public Meme() {}
 
-    public Meme(String name, String url, int likes) {
+    public Meme(String name, String url) {
         this.name = name;
         this.url = url;
-        this.likes = likes;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public ApplicationUser getAppUser() {
+        return appUser;
     }
 
     @PrePersist
