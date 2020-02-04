@@ -4,20 +4,14 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>MemeCage</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-<h1>Welcome to MemeCage!</h1>
+<div th:replace="fragments/header :: navbar"></div>
 
-<nav>
-    <ul>
-        <li>
-            <a href="/login">log in</a>
-        </li>
-        <li>
-            <a href="/signup">sign up</a>
-        </li>
-    </ul>
-</nav>
+<h1>Welcome to MemeCage!</h1>
 
 <div class="row">
     <div class="col s12 m4 l3">
@@ -128,10 +122,9 @@
 </div>
 
 <ul>
-<li th:each="meme : ${meme}">
-    <span th:text="${meme}"></span>
-</li>
-
+    <li th:each="meme : ${meme}">
+        <span th:text="${meme}"></span>
+    </li>
 </ul>
 
 

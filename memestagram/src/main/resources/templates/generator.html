@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-
+<div th:replace="fragments/header :: navbar"></div>
 <h1>Generate your memes</h1>
 
 <td>
@@ -22,8 +24,6 @@
         Text to add: <input type="text" name="textToAdd">
         <input type="submit" value="Generate a meme">
     </form>
-
-
 
 <!--<ul>-->
 <!--    <li th:each="meme : ${meme}">-->
@@ -50,6 +50,7 @@
 
 <!--</ul>-->
 
-
+<!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
