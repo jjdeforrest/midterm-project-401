@@ -23,3 +23,9 @@ What is the minimum required for you to present on your demo day?</br>
 * Main Meme page where users can like other memes</br>
 * Separate page with meme generator capacities(use app stored images and add your text to the image). As stretch goal- user could upload their images and add text. </br>
 
+# DOMAIN MODEL
+![domain-model](/memestagram/src/main/resources/static/images/domain-model.jpg)
+
+# DATA FLOW
+![DataFlow](/memestagram/src/main/resources/static/images/erd.jpg)
+
