@@ -27,6 +27,15 @@ public class ApplicationUserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+
+
+    @GetMapping("/signup")
+    public String signUp() {
+        return "signup";
+    }
+
+
+
     @PostMapping("/signup")
     public RedirectView createNewApplicationUser(String username, String password, String profilePicture,
                                                  String bio, String firstName){
@@ -40,6 +49,8 @@ public class ApplicationUserController {
 
         return new RedirectView("/profile");
     }
+
+
 
     @GetMapping("/login")
     public String showLoginForm(){
