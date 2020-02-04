@@ -29,7 +29,7 @@ public class ApplicationUserController {
 
     @PostMapping("/signup")
     public RedirectView createNewApplicationUser(String username, String password, String profilePicture,
-                                                 String bio, String firstName){
+                                                 String bio, String firstName) {
         ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), profilePicture, bio
                 , firstName);
 
@@ -42,12 +42,12 @@ public class ApplicationUserController {
     }
 
     @GetMapping("/login")
-    public String showLoginForm(){
+    public String showLoginForm() {
         return "login";
     }
 
     @GetMapping("/users/{id}")
-    public String showUserDetails(@PathVariable long id, Principal p, Model m){
+    public String showUserDetails(@PathVariable long id, Principal p, Model m) {
         ApplicationUser usernameWeAreVisiting = applicationUserRepository.findById(id).get();
 
         m.addAttribute("usernameWeAreVisiting", usernameWeAreVisiting);
@@ -56,7 +56,7 @@ public class ApplicationUserController {
     }
 
     @GetMapping("/profile")
-    public String showMyProfile(Principal p, Model m){
+    public String showMyProfile(Principal p, Model m) {
         ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
 
         m.addAttribute("user", loggedInUser);
