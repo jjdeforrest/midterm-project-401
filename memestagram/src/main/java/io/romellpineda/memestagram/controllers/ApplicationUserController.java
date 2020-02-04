@@ -2,6 +2,8 @@ package io.romellpineda.memestagram.controllers;
 
 import io.romellpineda.memestagram.models.ApplicationUser;
 import io.romellpineda.memestagram.models.ApplicationUserRepository;
+import io.romellpineda.memestagram.models.MemeRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -21,103 +23,64 @@ import java.util.ArrayList;
 public class ApplicationUserController {
 
     @Autowired
-    ApplicationUserRepository applicationUserRepository;
+    public MemeRepository memeRepository;
+
+    @Autowired
+    public ApplicationUserRepository applicationUserRepository;
+
+
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-<<<<<<< HEAD
-    @GetMapping("/signup")
-    public String signUp() {
-        return "signup";
-    }
-=======
->>>>>>> 89cb33674a4e9fa09c4a07190cfeafe43d6d1b25
-
-    @PostMapping("/signup")
-        public RedirectView createNewApplicationUser(String username, String password, String profilePicture,
-                String bio, String firstName){
-            ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), profilePicture, bio
-                    , firstName);
-
-            // save the user to db
-            applicationUserRepository.save(newUser);
-
-            Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-
-            // send them back home
-            return new RedirectView("/profile");
-    }
-
-    @GetMapping("/login")
-    public String showLoginForm(){
-        return "login";
-    }
-
-    @GetMapping("/users/{id}")
-    public String showUserDetails(@PathVariable long id, Principal p, Model m){
-        ApplicationUser userWeAreVisiting = applicationUserRepository.findById(id).get();
-
-        m.addAttribute("usernameWeAreVisiting", userWeAreVisiting);
-        m.addAttribute("principalName", p.getName());
-        return "public-view";
-    }
-
-    @GetMapping("/profile")
-    public String showMyProfile(Principal p, Model m){
-        ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
-
-        m.addAttribute("user", loggedInUser);
-        return "profile";
-    }
-
-<<<<<<< HEAD
-=======
 
     @GetMapping("/signup")
     public String signUp() {
         return "signup";
     }
 
-
-
-    @PostMapping("/signup")
-    public RedirectView createNewApplicationUser(String username, String password, String profilePicture,
-                                                 String bio, String firstName){
-        ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), profilePicture, bio
-                , firstName);
-
+    @PostMapping("/join")
+    public RedirectView createNewApplicationUser(String username, String password, String profilePicture, String bio, String firstName){
+        ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), profilePicture, bio, firstName);
         applicationUserRepository.save(newUser);
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return new RedirectView("/profile");
+        return new RedirectView("/userprofile");
     }
-
-
 
     @GetMapping("/login")
     public String showLoginForm(){
+
         return "login";
     }
 
     @GetMapping("/users/{id}")
     public String showUserDetails(@PathVariable long id, Principal p, Model m){
         ApplicationUser usernameWeAreVisiting = applicationUserRepository.findById(id).get();
-
         m.addAttribute("usernameWeAreVisiting", usernameWeAreVisiting);
         m.addAttribute("principalName", p.getName());
-        return "public-view";
-    }
-
-    @GetMapping("/profile")
-    public String showMyProfile(Principal p, Model m){
-        ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
-
-        m.addAttribute("user", loggedInUser);
+        m.addAttribute("meme", memeRepository);
         return "profile";
     }
->>>>>>> 89cb33674a4e9fa09c4a07190cfeafe43d6d1b25
-}
+
+    @GetMapping("/userprofile")
+    public RedirectView getLoggedInUsersId(Principal p, Model m){
+        if (p != null) {
+        ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+        return new RedirectView("/users/" + loggedInUser.id);
+        } else {
+            return new RedirectView("/login");
+        }
+    }
+
+    @PostMapping("/logged")
+    public RedirectView authententicatedUser(Principal p, Model m) {
+        if (p != null) {
+            ApplicationUser loggedUser = applicationUserRepository.findByUsername(p.getName());
+            return new RedirectView("/users/" + loggedUser.getId());
+        } else {
+            return new RedirectView("/login");
+        }
+    }
