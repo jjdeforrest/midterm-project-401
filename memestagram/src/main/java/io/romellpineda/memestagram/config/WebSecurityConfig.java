@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,36 +17,44 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Autowired
-//    UserDetailServiceImpl userDeetS;
+    @Autowired
+    UserDetailServiceImpl userDeetS;
 
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userDeetS).passwordEncoder(passwordEncoder());
-//    }
 
-//    @Bean
-//    public PasswordEncoder passwordEncoder(){
-//        return new BCryptPasswordEncoder();
-//    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDeetS).passwordEncoder(passwordEncoder());
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
-                .cors().disable()
-                .authorizeRequests()
-                .antMatchers("/", "/css/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/join").permitAll()
-                .anyRequest().authenticated()
+                    .csrf().disable()
+                    .cors().disable()
+                    .authorizeRequests()
+                    .antMatchers("/", "/css/**", "/generator", "/signup", "/resources/**").permitAll()
+                    .antMatchers(HttpMethod.POST, "/join").permitAll()
+                    .anyRequest().authenticated()
+
                 .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/myprofile")
-                .permitAll()
+                    .formLogin()
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/myprofile")
+                    .permitAll()
                 .and()
-                .logout()
-                .permitAll();
+                    .logout()
+                    .permitAll();
     }
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
 }
-//public class WebSecurityConfig {
-//}

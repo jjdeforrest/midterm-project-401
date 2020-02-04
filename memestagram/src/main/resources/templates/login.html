@@ -1,18 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
+
 <body>
+<div th:replace="fragments/header :: navbar"></div>
+
 <h2>log in</h2>
-<form action="/login" method="POST">
+
+<form action="/logged" method="POST">
     username <input type="text" name="username">
     <br>
     password <input type="password" name="password">
     <input type="submit">
 </form>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
