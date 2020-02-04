@@ -3,11 +3,9 @@ package io.romellpineda.memestagram.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Collection;
+import java.util.Date;
 
 @Entity
 public class ApplicationUser implements UserDetails {
@@ -16,30 +14,22 @@ public class ApplicationUser implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
 
-///////
-    /////
-
     String username;
     String password;
     String profilePicture;
     String bio;
-    String userCreated;
+    private Date createdAt;
     String firstName;
 
-    public ApplicationUser() {
-    }
+    public ApplicationUser() {}
 
-
-
-    public ApplicationUser(String username, String password, String profilePicture, String bio, String userCreated,String firstName) {
+    public ApplicationUser(String username, String password, String profilePicture, String bio,String firstName) {
         this.username = username;
         this.password = password;
         this.profilePicture = profilePicture;
         this.bio = bio;
-        this.userCreated = userCreated;
         this.firstName= firstName;
     }
-
 
     public String getUsername() {
         return username;
@@ -47,27 +37,32 @@ public class ApplicationUser implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = new Date();
     }
 
     public String getPassword() {
@@ -82,9 +77,8 @@ public class ApplicationUser implements UserDetails {
         return bio;
     }
 
-    public String getUserCreated() {
-        return userCreated;
+    public Date getUserCreated() {
+        return createdAt;
     }
-
 
 }
