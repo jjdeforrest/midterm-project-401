@@ -26,21 +26,28 @@ public class ApplicationUserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+<<<<<<< HEAD
+    @GetMapping("/signup")
+    public String signUp() {
+        return "signup";
+    }
+=======
+>>>>>>> 89cb33674a4e9fa09c4a07190cfeafe43d6d1b25
 
     @PostMapping("/signup")
-    public RedirectView createNewApplicationUser(String username, String password, String profilePicture,
-                                                 String bio, String userCreated, String firstName){
-        ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), profilePicture, bio
-                , userCreated, firstName);
+        public RedirectView createNewApplicationUser(String username, String password, String profilePicture,
+                String bio, String firstName){
+            ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), profilePicture, bio
+                    , firstName);
 
-        // save the user to db
-        applicationUserRepository.save(newUser);
+            // save the user to db
+            applicationUserRepository.save(newUser);
 
-        Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+            Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
+            SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        // send them back home
-        return new RedirectView("/profile");
+            // send them back home
+            return new RedirectView("/profile");
     }
 
     @GetMapping("/login")
@@ -65,6 +72,8 @@ public class ApplicationUserController {
         return "profile";
     }
 
+<<<<<<< HEAD
+=======
 
     @GetMapping("/signup")
     public String signUp() {
@@ -110,4 +119,5 @@ public class ApplicationUserController {
         m.addAttribute("user", loggedInUser);
         return "profile";
     }
+>>>>>>> 89cb33674a4e9fa09c4a07190cfeafe43d6d1b25
 }
