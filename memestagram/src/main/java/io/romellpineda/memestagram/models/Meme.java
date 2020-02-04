@@ -16,7 +16,7 @@ public class Meme {
     private Date updatedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    ApplicationUser user;
+    ApplicationUser appUser;
 
     public Meme() {}
 
