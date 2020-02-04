@@ -2,8 +2,8 @@ package io.romellpineda.memestagram.controllers;
 
 import io.romellpineda.memestagram.models.ApplicationUser;
 import io.romellpineda.memestagram.models.ApplicationUserRepository;
-
 import io.romellpineda.memestagram.models.MemeRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -33,6 +33,44 @@ public class ApplicationUserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+
+    @PostMapping("/signup")
+    public RedirectView createNewApplicationUser(String username, String password, String profilePicture,
+                                                 String bio, String userCreated, String firstName){
+        ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), profilePicture, bio
+                , userCreated, firstName);
+
+        // save the user to db
+        applicationUserRepository.save(newUser);
+
+        Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        // send them back home
+        return new RedirectView("/profile");
+    }
+
+    @GetMapping("/login")
+    public String showLoginForm(){
+        return "login";
+    }
+
+    @GetMapping("/users/{id}")
+    public String showUserDetails(@PathVariable long id, Principal p, Model m){
+        ApplicationUser userWeAreVisiting = applicationUserRepository.findById(id).get();
+
+        m.addAttribute("usernameWeAreVisiting", userWeAreVisiting);
+        m.addAttribute("principalName", p.getName());
+        return "public-view";
+    }
+
+    @GetMapping("/profile")
+    public String showMyProfile(Principal p, Model m){
+        ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+
+        m.addAttribute("user", loggedInUser);
+        return "profile";
+    }
 
 
 
