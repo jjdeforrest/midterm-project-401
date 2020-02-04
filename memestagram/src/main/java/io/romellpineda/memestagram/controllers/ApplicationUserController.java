@@ -2,8 +2,8 @@ package io.romellpineda.memestagram.controllers;
 
 import io.romellpineda.memestagram.models.ApplicationUser;
 import io.romellpineda.memestagram.models.ApplicationUserRepository;
-import io.romellpineda.memestagram.models.MemeRepository;
 
+import io.romellpineda.memestagram.models.MemeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -33,16 +33,15 @@ public class ApplicationUserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @PostMapping("/signup")
-    public RedirectView createNewApplicationUser(String username, String password, String profilePicture,
-                                                 String bio, String firstName) {
-        ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), profilePicture, bio
-                , firstName);
+
+
 
     @GetMapping("/signup")
     public String signUp() {
         return "signup";
     }
+
+
 
     @PostMapping("/join")
     public RedirectView createNewApplicationUser(String username, String password, String profilePicture, String bio, String firstName){
@@ -55,21 +54,22 @@ public class ApplicationUserController {
         return new RedirectView("/userprofile");
     }
 
+
+
     @GetMapping("/login")
-    public String showLoginForm() {
+    public String showLoginForm(){
 
         return "login";
     }
 
     @GetMapping("/users/{id}")
-    public String showUserDetails(@PathVariable long id, Principal p, Model m) {
+    public String showUserDetails(@PathVariable long id, Principal p, Model m){
         ApplicationUser usernameWeAreVisiting = applicationUserRepository.findById(id).get();
         m.addAttribute("usernameWeAreVisiting", usernameWeAreVisiting);
         m.addAttribute("principalName", p.getName());
         m.addAttribute("meme", memeRepository);
         return "profile";
     }
-
 
     @GetMapping("/userprofile")
     public RedirectView getLoggedInUsersId(Principal p, Model m){
@@ -90,3 +90,5 @@ public class ApplicationUserController {
             return new RedirectView("/login");
         }
     }
+
+}
