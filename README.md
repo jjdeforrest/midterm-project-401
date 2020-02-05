@@ -29,3 +29,13 @@ What is the minimum required for you to present on your demo day?</br>
 # DATA FLOW
 ![DataFlow](/memestagram/src/main/resources/static/images/erd.jpg)
 
+# Build Procedures
+1. `git pull origin development`
+2. `git checkout -b <<your initials-your branch name>>`
+3. Build your feature.
+4. Add your new code.
+5. Commit your new code.
+6. *important* `git pull origin development`
+7. `git push origin <<your initials-your branch name>>`
+8. Create pull request (PR) on GitHub.
+9. Copy and paste PR link to team slack channel.
