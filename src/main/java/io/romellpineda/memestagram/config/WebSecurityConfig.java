@@ -37,11 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .csrf().disable()
                     .cors().disable()
                     .authorizeRequests()
-<<<<<<< HEAD:memestagram/src/main/java/io/romellpineda/memestagram/config/WebSecurityConfig.java
-                    .antMatchers("/", "/css/**", "/generator", "/signup", "/resources/**", "/storage/*").permitAll()
-=======
-                    .antMatchers("/", "/css/**", "/generator", "/developers", "/signup", "/resources/**").permitAll()
->>>>>>> development:src/main/java/io/romellpineda/memestagram/config/WebSecurityConfig.java
+                    .antMatchers("/", "/css/**", "/generator", "/signup", "/resources/**", "/storage/*", "/developers").permitAll()
                     .antMatchers(HttpMethod.POST, "/join").permitAll()
                     .anyRequest().authenticated()
 
