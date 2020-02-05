@@ -69,8 +69,6 @@ public class MemeController {
         poster.memes.add(freshMeme);
         appUserRepo.save(poster);
         memeRepo.save(freshMeme);
-        System.out.println("/////" + name + " " + url);
-        System.out.println(freshMeme.name);
         return new RedirectView("/");
     }
 }
