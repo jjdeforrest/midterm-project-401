@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<div th:replace="fragments/header :: navbar"></div>
+<h1>Generate your memes</h1>
+
+<td>
+    <span th:if="${displayDiv}"> Upload different picture</span>
+
+</td>
+
+    <form action="/generator" method="POST">
+        <h2>Add stuff to the picture, make a meme</h2>
+<!--        <input type="hidden" name="id" th:value="${id}">-->
+        name it: <input type="text" name="name">
+
+        Picture html: <input type="text" name="linkMeme">
+        Text to add: <input type="text" name="textToAdd">
+        <input type="submit" value="Generate a meme">
+    </form>
+
+<!--<ul>-->
+<!--    <li th:each="meme : ${meme}">-->
+<!--        <span th:text="${meme}"></span>-->
+<!--    </li>-->
+
+
+
+<!--    <form action="/newMeme" method="POST">-->
+<!--        <h2>Add a meme</h2>-->
+<!--        <input type="hidden" name="id" th:value="${id}">-->
+<!--        Comment: <input type="text" name="body">-->
+<!--        <input type="submit" value="add a meme">-->
+<!--    </form>-->
+
+
+
+<!--    <form action="/newComment" method="POST">-->
+<!--        <h2>Add a comment</h2>-->
+<!--        <input type="hidden" name="id" th:value="${id}">-->
+<!--        Comment: <input type="text" name="body">-->
+<!--        <input type="submit" value="add a comment">-->
+<!--    </form>-->
+
+<!--</ul>-->
+
+<!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
