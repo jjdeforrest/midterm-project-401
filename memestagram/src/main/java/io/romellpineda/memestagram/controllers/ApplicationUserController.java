@@ -34,24 +34,15 @@ public class ApplicationUserController {
     private PasswordEncoder passwordEncoder;
 
 
-    @GetMapping("/login")
-    public String showLoginForm(){
 
-        return "login";
-    }
-
-    @GetMapping("/developers")
-    public String showDevelopers(){
-
-        return "developers";
+    @PostMapping("/loggingout")
+    public RedirectView loggedout(){
+        return new RedirectView("logout");
     }
 
 
-    @GetMapping("/signup")
-    public String signUp() {
 
-        return "signup";
-    }
+
 
 
 
@@ -98,5 +89,6 @@ public class ApplicationUserController {
             return new RedirectView("/login");
         }
     }
+
 
 }
