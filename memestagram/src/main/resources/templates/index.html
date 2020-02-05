@@ -13,109 +13,21 @@
 
 <h1>Welcome to MemeCage!</h1>
 
-<div class="row">
-    <div class="col s12 m4 l3">
-        <div class="card">
+<div th:if="${empty}">
+    <h3>sorry, no memes bro</h3>
+</div>
+
+<div class="row content">
+    <div th:each="meme : ${allMemes}"  class="col s12 m4 l3">
+        <div class="card hoverable">
             <div class="card-image">
-                <img src="images/sample.jpg">
-                <span class="card-title">Card Title</span>
+                <img th:src="${meme.url}">
             </div>
             <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
+                <p th:text="${meme.name}"></p>
             </div>
             <div class="card-action">
-                <a href="#">This is a link</a>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m4 l3">
-        <div class="card">
-            <div class="card-image">
-                <img src="images/sample.jpg">
-                <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-                <a href="#">This is a link</a>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m4 l3">
-        <div class="card">
-            <div class="card-image">
-                <img src="images/sample.jpg">
-                <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-                <a href="#">This is a link</a>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m4 l3">
-        <div class="card">
-            <div class="card-image">
-                <img src="images/sample.jpg">
-                <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-                <a href="#">This is a link</a>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m4 l3">
-        <div class="card">
-            <div class="card-image">
-                <img src="images/sample.jpg">
-                <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-                <a href="#">This is a link</a>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m4 l3">
-        <div class="card">
-            <div class="card-image">
-                <img src="images/sample.jpg">
-                <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-                <a href="#">This is a link</a>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m4 l3">
-        <div class="card">
-            <div class="card-image">
-                <img src="images/sample.jpg">
-                <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-                <a href="#">This is a link</a>
+                <a href="#">like</a>
             </div>
         </div>
     </div>
