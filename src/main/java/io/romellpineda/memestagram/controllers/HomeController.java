@@ -21,7 +21,6 @@ public class HomeController {
         if (p != null){
             m.addAttribute("username", p.getName());
         }
-
         List<Meme> allMemes = memeRepo.findAll();
         if (allMemes.size() == 0) {
             m.addAttribute("empty", true);
@@ -29,6 +28,54 @@ public class HomeController {
         m.addAttribute("allMemes", allMemes);
         return "index";
     }
+
+
+    @GetMapping("/signup")
+    public String signUp() {
+
+        return "signup";
+    }
+
+    @GetMapping("/login")
+    public String showLoginForm(){
+
+        return "login";
+    }
+
+    @GetMapping("/developers")
+    public String showDevelopers(){
+
+        return "developers";
+    }
+
+    @GetMapping("/signout")
+    public String signout(){
+
+        return "signout";
+    }
+
+    @GetMapping("/loggedinindex")
+    public String loggedinindex(){
+
+        return "loggedinindex";
+    }
+
+    @GetMapping("/loggedingenerator")
+    public String loggedingenerator(){
+
+        return "loggedingenerator";
+    }
+
+    @GetMapping("/loggedindevelopers")
+    public String loggedindevelopers(){
+
+        return "loggedindevelopers";
+    }
+
+
+
+
+
 
 
 
