@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50264c48-a525-497d-8d8b-ffac7094b484" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/memestagram/src/main/resources/templates/generator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/midterm-project-401.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/memestagram/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/memestagram/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memestagram/src/main/java/io/romellpineda/memestagram/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/memestagram/src/main/java/io/romellpineda/memestagram/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memestagram/src/main/java/io/romellpineda/memestagram/controllers/ApplicationUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/memestagram/src/main/java/io/romellpineda/memestagram/controllers/ApplicationUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memestagram/src/main/java/io/romellpineda/memestagram/controllers/MemeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/memestagram/src/main/java/io/romellpineda/memestagram/controllers/MemeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memestagram/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/memestagram/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memestagram/src/main/resources/templates/memeGenerator.html" beforeDir="false" />
-    </list>
+    <list default="true" id="50264c48-a525-497d-8d8b-ffac7094b484" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,5 +43,23 @@
       <updated>1580792500227</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1580937858103">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580937858103" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1580937858102">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580937858102" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1580937858102">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580937858102" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1580937858103">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580937858103" />
   </component>
 </project>
