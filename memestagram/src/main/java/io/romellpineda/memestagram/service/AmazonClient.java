@@ -72,15 +72,10 @@ public class AmazonClient {
     }
 
     private void uploadFileToS3(String fileName, File file) {
-        System.out.println("-------> " + bucketName + "-" + fileName);
         System.out.println();
-
-
         s3client.putObject(new PutObjectRequest(bucketName, fileName, file)
                 .withCannedAcl(CannedAccessControlList.PublicRead));
-
     }
-
     public String deleteFileFromS3(String fileUrl) {
         String fileName = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
         s3client.deleteObject(new DeleteObjectRequest(bucketName, fileName));
