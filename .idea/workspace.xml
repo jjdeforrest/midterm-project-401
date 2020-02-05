@@ -1,62 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50264c48-a525-497d-8d8b-ffac7094b484" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/io/romellpineda/memestagram/MemestagramApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/io/romellpineda/memestagram/config/UserDetailServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/io/romellpineda/memestagram/config/WebSecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/io/romellpineda/memestagram/controllers/ApplicationUserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/io/romellpineda/memestagram/controllers/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/io/romellpineda/memestagram/controllers/MemeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/io/romellpineda/memestagram/models/ApplicationUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/io/romellpineda/memestagram/models/ApplicationUserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/io/romellpineda/memestagram/models/Meme.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/io/romellpineda/memestagram/models/MemeRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/static/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/static/images/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/static/images/domain-model.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/static/images/erd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/static/images/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/static/images/sample.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/static/images/wireframe1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/static/images/wireframe2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/static/images/wireframe3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/templates/generator.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/templates/signup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/romellpineda/memestagram/MemestagramApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/romellpineda/memestagram/config/UserDetailServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/romellpineda/memestagram/config/WebSecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/romellpineda/memestagram/controllers/ApplicationUserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/romellpineda/memestagram/controllers/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/romellpineda/memestagram/controllers/MemeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/romellpineda/memestagram/models/ApplicationUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/romellpineda/memestagram/models/ApplicationUserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/romellpineda/memestagram/models/Meme.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/romellpineda/memestagram/models/MemeRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/io/romellpineda/memestagram/MemestagramApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/domain-model.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/erd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/sample.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/wireframe1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/wireframe2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/images/wireframe3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/developers.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/fragments/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/generator.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/signup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="50264c48-a525-497d-8d8b-ffac7094b484" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
