@@ -34,10 +34,22 @@ public class ApplicationUserController {
     private PasswordEncoder passwordEncoder;
 
 
+    @GetMapping("/login")
+    public String showLoginForm(){
+
+        return "login";
+    }
+
+    @GetMapping("/developers")
+    public String showDevelopers(){
+
+        return "developers";
+    }
 
 
     @GetMapping("/signup")
     public String signUp() {
+
         return "signup";
     }
 
@@ -56,11 +68,7 @@ public class ApplicationUserController {
 
 
 
-    @GetMapping("/login")
-    public String showLoginForm(){
 
-        return "login";
-    }
 
     @GetMapping("/users/{id}")
     public String showUserDetails(@PathVariable long id, Principal p, Model m){
