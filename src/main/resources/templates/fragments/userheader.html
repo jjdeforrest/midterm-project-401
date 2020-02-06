@@ -6,18 +6,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-<header th:fragment="navbar">
+
+<header th:fragment="userbar">
     <nav>
         <div class="nav-wrapper">
             <!--                <a href="/" class="brand-logo">-->
             <!--                    <img src="/..//static.images/logo.png">-->
             <!--                </a>-->
             <ul id="nav-user" class="right hide-on-med-and-down">
-                <li><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/signup">Sign up</a></li>
-                <li><a href="/generator">Generator</a></li>
-                <li><a href="/developers">Developers</a></li>
+                <li><a href="/loggedinindex">Home</a></li>
+                <li><a href="/loggedingenerator">Generator</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/loggedindevelopers">Developers</a></li>
+                <li><a href="/signout">Sign Out</a></li>
             </ul>
         </div>
     </nav>
