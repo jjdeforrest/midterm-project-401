@@ -3,3 +3,19 @@ margin: 0px;
 padding: 0px;
 color: pink;
 }
+
+h2 {
+    text-align: center;
+}
+
+nav-wrapper {
+    color-background: #303f9f indigo darken-2;
+}
+
+.row {
+    width: 1000px;
+}
+
+button .waves-effect waves-light btn-large {
+    text-align: center;
+}
