@@ -4,12 +4,16 @@ padding: 0px;
 color: pink;
 }
 
-h2 {
+h2, h1 {
     text-align: center;
 }
 
 nav-wrapper {
     color-background: #303f9f indigo darken-2;
+}
+
+.developers {
+    float: center;
 }
 
 .row {
@@ -18,4 +22,25 @@ nav-wrapper {
 
 button .waves-effect waves-light btn-large {
     text-align: center;
+}
+
+.card .card-image img {
+    width: 300px;
+    height: 300px
+}
+
+
+.card .card-content {
+    width: 300px;
+}
+
+.card .card-reveal {
+    width: 300px;
+}
+
+.card {
+    width: 300px;
+    display: inline-block;
+
+    margin-left: 40px;
 }
