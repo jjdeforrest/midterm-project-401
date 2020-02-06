@@ -10,6 +10,7 @@ import io.romellpineda.memestagram.service.AmazonClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
@@ -28,6 +29,10 @@ import java.security.Principal;
 public class MemeController {
 
     private AmazonClient amazonClient;
+
+//    @Autowired
+//    MemeController memeController;
+
 
     @Autowired
     MemeController(AmazonClient amazonClient) {
@@ -74,7 +79,7 @@ public class MemeController {
             String fileName = this.amazonClient.uploadGeneratedMeme(memeGenerated);
 
             ApplicationUser poster = appUserRepo.findByUsername(p.getName());
-            Meme freshMeme = new Meme(name, fileName);
+            Meme freshMeme = new Meme(poster, name, fileName);
             poster.memes.add(freshMeme);
             appUserRepo.save(poster);
             memeRepo.save(freshMeme);
@@ -86,13 +91,42 @@ public class MemeController {
         return new RedirectView("/generator");
     }
 
-    @PostMapping("/meme/add")
-    public RedirectView addMeme(Principal p, String name, String url) {
-        ApplicationUser poster = appUserRepo.findByUsername(p.getName());
-        Meme freshMeme = new Meme(name, url);
-        poster.memes.add(freshMeme);
-        appUserRepo.save(poster);
-        memeRepo.save(freshMeme);
-        return new RedirectView("/");
+//    @PostMapping("/meme/add")
+//    public RedirectView addMeme(Principal p, String name, String url) {
+//        ApplicationUser poster = appUserRepo.findByUsername(p.getName());
+////        Meme freshMeme = new Meme(name, url);
+//        poster.memes.add(freshMeme);
+//        appUserRepo.save(poster);
+//        memeRepo.save(freshMeme);
+//        return new RedirectView("/profile");
+//    }
+
+    @PostMapping("/emotions/delete/{id}")
+    public RedirectView deleteAnEmotion(@PathVariable long id) {
+
+        memeRepo.deleteById(id);
+        return new RedirectView("/profile");
     }
+
+
+//    @PostMapping("/memeDetails")
+//    public RedirectView makeAmeme(String name, String url, Principal p) {
+//        ApplicationUser whoPosted = appUserRepo.findByUsername(p.getName());
+//        // save a post
+//        long id =whoPosted.id;
+//        Meme posted = new Meme(whoPosted, url, name);
+//        MemeRepository.save(posted);
+//        return new RedirectView("/users/" + id);
+//    }
+//pplicationUser appUser, String name, String url
+//
+//    @PostMapping("/meme/delete/{id}")
+//    public RedirectView deleteAnEmotion(@PathVariable long id){
+////        System.out.println("trying to delete our emotions");
+//        System.out.println("delete " + id);
+//
+//        memeRepo.deleteById(id);
+//        return new RedirectView("/profile");
+//    }
+
 }
