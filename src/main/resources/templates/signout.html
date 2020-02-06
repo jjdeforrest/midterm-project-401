@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-<div th:replace="fragments/userheader :: userbar"></div>
+<div th:replace="fragments/header :: navbar"></div>
 <ul>
     <form action="/loggingout" method="POST">
         <h1>Are you Sure!</h1>
