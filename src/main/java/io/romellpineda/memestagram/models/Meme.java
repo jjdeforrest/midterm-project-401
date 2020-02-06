@@ -9,6 +9,7 @@ public class Meme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     public String name;
     public String url;
     public int likes;
@@ -20,7 +21,8 @@ public class Meme {
 
     public Meme() {}
 
-    public Meme(String name, String url) {
+    public Meme(ApplicationUser appUser, String name, String url) {
+        this.appUser = appUser;
         this.name = name;
         this.url = url;
     }
