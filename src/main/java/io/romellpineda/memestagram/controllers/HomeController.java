@@ -28,9 +28,7 @@ public class HomeController {
         m.addAttribute("allMemes", allMemes);
         return "index";
     }
-
-
-    @GetMapping("/signup")
+   @GetMapping("/signup")
     public String signUp() {
 
         return "signup";
@@ -71,12 +69,4 @@ public class HomeController {
 
         return "loggedindevelopers";
     }
-
-
-
-
-
-
-
-
 }

@@ -81,4 +81,20 @@ public class AmazonClient {
         s3client.deleteObject(new DeleteObjectRequest(bucketName, fileName));
         return "Deleted";
     }
+
+    public String uploadGeneratedMeme(File file) {
+        String fileUrl = "";
+        try {
+            String fileName = generateFilegeneratedMeme(file);
+            fileUrl = "https://" + bucketName +".s3.amazonaws.com/"+ fileName;
+            uploadFileToS3(fileName, file);
+            file.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return fileUrl;
+    }
+    private String generateFilegeneratedMeme(File file) {
+        return new Date().getTime() + "-" + file;
+    }
 }

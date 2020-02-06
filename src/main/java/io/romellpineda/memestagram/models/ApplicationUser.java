@@ -14,7 +14,7 @@ public class ApplicationUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
-    @Column(unique=true)
+    @Column(unique = true)
     String username;
     String password;
     String profilePicture;
@@ -33,7 +33,8 @@ public class ApplicationUser implements UserDetails {
     public List<ApplicationUser> following;
 
 
-    public ApplicationUser() {}
+    public ApplicationUser() {
+    }
 
 
     public ApplicationUser(String username, String password, String profilePicture, String bio, String firstName) {
@@ -41,7 +42,7 @@ public class ApplicationUser implements UserDetails {
         this.password = password;
         this.profilePicture = profilePicture;
         this.bio = bio;
-        this.firstName= firstName;
+        this.firstName = firstName;
     }
 
     public String getFirstName() {
