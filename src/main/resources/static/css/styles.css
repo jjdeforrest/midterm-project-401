@@ -8,15 +8,16 @@ h2, h1 {
     text-align: center;
 }
 
-nav-wrapper {
-    color-background: #303f9f indigo darken-2;
-}
+/************************/
+/****** DEVELOPERS ******/
+/************************/
+
 
 .developers {
     float: center;
 }
 
-.row {
+.developers.row {
     width: 1000px;
 }
 
@@ -24,21 +25,21 @@ button .waves-effect waves-light btn-large {
     text-align: center;
 }
 
-.card .card-image img {
+.developers .card .card-image img {
     width: 300px;
     height: 300px
 }
 
 
-.card .card-content {
+.developers .card .card-content {
     width: 300px;
 }
 
-.card .card-reveal {
+.developers .card .card-reveal {
     width: 300px;
 }
 
-.card {
+.developers .card {
     width: 300px;
     display: inline-block;
 
