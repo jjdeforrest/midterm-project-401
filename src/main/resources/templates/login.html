@@ -18,6 +18,21 @@
     password <input type="password" name="password">
     <input type="submit">
 </form>
+
+
+<div class="row content">
+    <div th:each="meme : ${allMemes}"  class="col s12 m4 l3">
+        <div class="card hoverable">
+            <div class="card-image">
+                <img th:src="${meme.url}">
+            </div>
+            <div class="card-content">
+                <p th:text="${meme.name}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
