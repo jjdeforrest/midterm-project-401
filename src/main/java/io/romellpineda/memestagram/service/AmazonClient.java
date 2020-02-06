@@ -26,7 +26,7 @@ public class AmazonClient {
 
     private AmazonS3 s3client;
 
-    @Value("${b}")
+    @Value("${a}")
     private String endpointUrl;
     @Value("${bucketName}")
     private String bucketName;
@@ -80,5 +80,21 @@ public class AmazonClient {
         String fileName = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
         s3client.deleteObject(new DeleteObjectRequest(bucketName, fileName));
         return "Deleted";
+    }
+
+    public String uploadGeneratedMeme(File file) {
+        String fileUrl = "";
+        try {
+            String fileName = generateFilegeneratedMeme(file);
+            fileUrl = "https://" + bucketName +".s3.amazonaws.com/"+ fileName;
+            uploadFileToS3(fileName, file);
+            file.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return fileUrl;
+    }
+    private String generateFilegeneratedMeme(File file) {
+        return new Date().getTime() + "-" + file;
     }
 }

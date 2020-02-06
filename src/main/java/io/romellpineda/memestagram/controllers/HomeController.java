@@ -29,7 +29,4 @@ public class HomeController {
         m.addAttribute("allMemes", allMemes);
         return "index";
     }
-
-
-
 }
