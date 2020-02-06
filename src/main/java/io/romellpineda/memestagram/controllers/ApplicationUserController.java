@@ -61,8 +61,6 @@ public class ApplicationUserController {
             m.addAttribute("usersMemes", usernameWeAreVisiting.memes);
         }
 
-        m.addAttribute("allMemes", allMemes);
-
         return "profile";
     }
 
