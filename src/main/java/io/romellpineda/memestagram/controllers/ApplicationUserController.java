@@ -3,6 +3,7 @@ package io.romellpineda.memestagram.controllers;
 import io.romellpineda.memestagram.models.ApplicationUser;
 import io.romellpineda.memestagram.models.ApplicationUserRepository;
 
+import io.romellpineda.memestagram.models.Meme;
 import io.romellpineda.memestagram.models.MemeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class ApplicationUserController {
@@ -28,23 +30,13 @@ public class ApplicationUserController {
     @Autowired
     public ApplicationUserRepository applicationUserRepository;
 
-
-
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-
 
     @PostMapping("/loggingout")
     public RedirectView loggedout(){
         return new RedirectView("logout");
     }
-
-
-
-
-
-
 
     @PostMapping("/join")
     public RedirectView createNewApplicationUser(String username, String password, String profilePicture, String bio, String firstName){
@@ -57,16 +49,22 @@ public class ApplicationUserController {
         return new RedirectView("/userprofile");
     }
 
-
-
-
-
     @GetMapping("/users/{id}")
     public String showUserDetails(@PathVariable long id, Principal p, Model m){
         ApplicationUser usernameWeAreVisiting = applicationUserRepository.findById(id).get();
         m.addAttribute("usernameWeAreVisiting", usernameWeAreVisiting);
         m.addAttribute("principalName", p.getName());
         m.addAttribute("meme", memeRepository);
+
+        if (p != null){
+            m.addAttribute("username", p.getName());
+        }
+        List<Meme> allMemes = memeRepository.findAll();
+        if (allMemes.size() == 0) {
+            m.addAttribute("empty", true);
+        }
+        m.addAttribute("allMemes", allMemes);
+
         return "profile";
     }
 
@@ -89,6 +87,5 @@ public class ApplicationUserController {
             return new RedirectView("/login");
         }
     }
-
 
 }

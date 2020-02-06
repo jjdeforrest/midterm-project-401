@@ -30,10 +30,6 @@ public class MemeController {
 
     private AmazonClient amazonClient;
 
-//    @Autowired
-//    MemeController memeController;
-
-
     @Autowired
     MemeController(AmazonClient amazonClient) {
         this.amazonClient = amazonClient;
@@ -91,42 +87,10 @@ public class MemeController {
         return new RedirectView("/generator");
     }
 
-//    @PostMapping("/meme/add")
-//    public RedirectView addMeme(Principal p, String name, String url) {
-//        ApplicationUser poster = appUserRepo.findByUsername(p.getName());
-////        Meme freshMeme = new Meme(name, url);
-//        poster.memes.add(freshMeme);
-//        appUserRepo.save(poster);
-//        memeRepo.save(freshMeme);
-//        return new RedirectView("/profile");
-//    }
-
-    @PostMapping("/emotions/delete/{id}")
-    public RedirectView deleteAnEmotion(@PathVariable long id) {
+    @GetMapping("/delete/{id}")
+    public RedirectView deleteMeme(@PathVariable long id) {
 
         memeRepo.deleteById(id);
-        return new RedirectView("/profile");
+        return new RedirectView("/");
     }
-
-
-//    @PostMapping("/memeDetails")
-//    public RedirectView makeAmeme(String name, String url, Principal p) {
-//        ApplicationUser whoPosted = appUserRepo.findByUsername(p.getName());
-//        // save a post
-//        long id =whoPosted.id;
-//        Meme posted = new Meme(whoPosted, url, name);
-//        MemeRepository.save(posted);
-//        return new RedirectView("/users/" + id);
-//    }
-//pplicationUser appUser, String name, String url
-//
-//    @PostMapping("/meme/delete/{id}")
-//    public RedirectView deleteAnEmotion(@PathVariable long id){
-////        System.out.println("trying to delete our emotions");
-//        System.out.println("delete " + id);
-//
-//        memeRepo.deleteById(id);
-//        return new RedirectView("/profile");
-//    }
-
 }

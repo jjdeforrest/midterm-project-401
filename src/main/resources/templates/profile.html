@@ -15,15 +15,34 @@
 <h2 th:text="${usernameWeAreVisiting.firstName}"></h2>
 <h2 th:text="${usernameWeAreVisiting.bio}"></h2>
 
-<h2><a href = "/generator">Add a Meme!<a></a></h2>
+<h2><a href = "/generator">Add a Meme!</a></h2>
+
+
+
 <div class="row">
 
-    <li th:each="meme : ${memes}" >
-        <span th:text="${meme}"></span>
+    <div class="row content">
+        <div th:each="meme : ${allMemes}"  class="col s12 m4 l3">
+            <div class="card hoverable">
+                <div class="card-image">
+                <img th:src="${meme.url}">
+            </div>
+                <div class="card-content">
+                    <p th:text="${meme.name}"></p>
+                </div>
+                            <div class="card-action">
+                                <a th:href="'/delete/'+${meme.id}">Delete me</a>
+                            </div>
 
-    <form th:action="'/meme/delete/' + ${meme.id}" method="POST">
-        <button type="submit">Delete</button>
-    </form>
+<!--                <form th:action="'/delete/' + ${meme.id}" method="POST">-->
+<!--                    <button type="submit">delete me</button>-->
+<!--                </form>-->
+
+            </div>
+        </div>
+    </div>
+
+
 
 
 
