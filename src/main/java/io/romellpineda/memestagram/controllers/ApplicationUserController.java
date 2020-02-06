@@ -58,12 +58,8 @@ public class ApplicationUserController {
 
         if (p != null){
             m.addAttribute("username", p.getName());
+            m.addAttribute("usersMemes", usernameWeAreVisiting.memes);
         }
-        List<Meme> allMemes = memeRepository.findAll();
-        if (allMemes.size() == 0) {
-            m.addAttribute("empty", true);
-        }
-        m.addAttribute("allMemes", allMemes);
 
         return "profile";
     }
@@ -87,5 +83,4 @@ public class ApplicationUserController {
             return new RedirectView("/login");
         }
     }
-
 }

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-<div th:replace="fragments/userheader :: userbar"></div>
+<div th:replace="fragments/header :: navbar"></div>
 <h1>[[${principal}]]</h1>
 
 <img th:src="${usernameWeAreVisiting.profilePicture}">
@@ -17,13 +17,11 @@
 
 <h2><a href = "/generator">Add a Meme!</a></h2>
 
-
-
 <div class="row">
 
     <div class="row content">
-        <div th:each="meme : ${allMemes}"  class="col s12 m4 l3">
-            <div class="card hoverable">
+        <div th:each="meme : ${usersMemes}"  class="col s12 m4 l3">
+        <div class="card hoverable">
                 <div class="card-image">
                 <img th:src="${meme.url}">
             </div>
