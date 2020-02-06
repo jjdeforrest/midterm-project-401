@@ -78,6 +78,7 @@ public class ApplicationUserController {
         }
     }
 
+
     @PostMapping("/logged")
     public RedirectView authententicatedUser(Principal p, Model m) {
         if (p != null) {
