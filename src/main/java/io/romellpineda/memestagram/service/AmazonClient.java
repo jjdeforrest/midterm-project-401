@@ -26,7 +26,7 @@ public class AmazonClient {
 
     private AmazonS3 s3client;
 
-    @Value("${b}")
+    @Value("${a}")
     private String endpointUrl;
     @Value("${bucketName}")
     private String bucketName;
