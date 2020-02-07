@@ -4,8 +4,9 @@ padding: 0px;
 color: pink;
 }
 
-h2, h1 {
+h2, h1, h3 {
     text-align: center;
+    font-size: 10em;
 }
 
 /************************/
@@ -28,20 +29,29 @@ img{
 
 
 .developers {
-    float: center;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
 }
 
-.developers.row {
-    width: 1000px;
+.card {
+    float: right;
+    right: 15%;
+    margin: 0% 0% 0% 0%;
+    padding: 0%;
+
 }
+
+
 
 button .waves-effect waves-light btn-large {
     text-align: center;
 }
 
 .developers .card .card-image img {
+    border-style: none;
     width: 300px;
-    height: 300px
+    height: 300px;
 }
 
 
@@ -59,3 +69,16 @@ button .waves-effect waves-light btn-large {
 
     margin-left: 40px;
 }
+
+form {
+    display: inline-block;
+    right: 50%;
+    margin: 0% 0% 0% 0%;
+    padding: 0%;
+    width: 50%;
+    height: 50%;
+    font-size: 5em;
+}
+
+
+
