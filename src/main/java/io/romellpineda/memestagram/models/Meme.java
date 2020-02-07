@@ -17,6 +17,7 @@ public class Meme {
     public String name;
     public String url;
     private Date createdAt;
+//    public int likes;
 
     @ManyToOne(fetch = FetchType.LAZY)
     ApplicationUser appUser;
@@ -37,15 +38,25 @@ public class Meme {
         return url;
     }
 
-
     public Date getCreatedAt() {
         return createdAt;
     }
 
-
     public ApplicationUser getAppUser() {
         return appUser;
     }
+
+//    public int getLikes() {
+//        return likes;
+//    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+//    public void setLikes(int likes) {
+//        this.likes = likes;
+//    }
 
     @PrePersist
     protected void onCreate() {

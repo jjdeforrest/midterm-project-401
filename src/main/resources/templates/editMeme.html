@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Meme</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<div th:replace="fragments/header :: navbar"></div>
+<h1>Make edits to name</h1>
+<img th:src="${memeUrl}">
+<form th:action="@{'/meme/edit/' + ${memeId}}" method="POST" class="col s12">
+    <div class="input-field col s12">
+        <h3>Name</h3>
+        <input type="text" name="memeName" th:value="${memeName}">
+    </div>
+    <input type="hidden" name="memeUrl">
+    <input type="submit" value="Save" class="waves-effect waves-light btn-large indigo">
+</form>
+</body>
+</html>
