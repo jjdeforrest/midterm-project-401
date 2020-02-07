@@ -3,54 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-<div th:replace="fragments/userheader :: userbar"></div>
-<h1>[[${principal}]]</h1>
+    <div th:replace="fragments/header :: navbar"></div>
+    <h1>[[${principal}]]</h1>
 
-<img th:src="${usernameWeAreVisiting.profilePicture}">
-<h1 th:text="${usernameWeAreVisiting.username}"></h1>
-<h2 th:text="${usernameWeAreVisiting.firstName}"></h2>
-<h2 th:text="${usernameWeAreVisiting.bio}"></h2>
+    <img th:src="${usernameWeAreVisiting.profilePicture}">
 
-<h2>Add a Meme!</h2>
-<div class="row">
-    <form action="/meme/add" method="POST" class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="memeName" type="text" name="name" class="validate">
-                <label for="memeName">Meme Name</label>
+    <div class="user-profile">
+        <h1> Username: <span th:text="${usernameWeAreVisiting.username}"></span></h1>
+
+        <h2> Name: <span th:text="${usernameWeAreVisiting.firstName}"></span></h2>
+
+        <h2> Bio: <span th:text="${usernameWeAreVisiting.bio}"></span></h2>
+
+        <h2><a href = "/generator">Add a Meme!</a></h2>
+    </div>
+
+    <div class="row-profile">
+
+        <div class="row-content">
+            <div th:each="meme : ${usersMemes}"  class="col s12 m4 l3">
+                <div class="card hoverable">
+                    <div class="card-image">
+                    <img th:src="${meme.url}">
+                </div>
+                    <div class="card-content">
+                        <p th:text="${meme.name}"></p>
+                    </div>
+                    <div class="card-action">
+                        <a th:href="'/delete/'+${meme.id}">Delete me</a>
+                        <a th:href="@{'/meme/edit/' + ${meme.getId()}}" class="waves-effect waves-green btn-flat right">Edit</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="memeUrl" type="text" name="url" class="validate">
-                <label for="memeUrl">Meme Url</label>
-            </div>
-        </div>
-        <input type="submit" value="Post Meme">
-    </form>
-</div>
-
-<!--<ul>-->
-<!--        <li th:each="meme : ${meme}">-->
-<!--            <span th:text="${meme}"></span>-->
-<!--        </li>-->
-<!--    <li th:each="comment : ${comment}">-->
-<!--        <span th:text="${comment}"></span>-->
-<!--    </li>-->
-
-<!--    <form action="/newComment" method="POST">-->
-<!--        <h2>Add a comment</h2>-->
-<!--        <input type="hidden" name="id" th:value="${id}">-->
-<!--        Comment: <input type="text" name="body">-->
-<!--        <input type="submit" value="add a comment">-->
-<!--    </form>-->
-<!--</ul>-->
-
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .cors().disable()
                     .authorizeRequests()
 
-                    .antMatchers("/", "/css/**","/loggedingenerator", "/loggedinindex", "/generator", "/developers", "/loggedindevelopers",  "/signout", "/signup", "/resources/**").permitAll()
+                    .antMatchers("/", "/css/**", "/loggedinindex", "/developers", "/loggedindevelopers", "/signup", "/resources/**").permitAll()
 
                     .antMatchers(HttpMethod.POST, "/join").permitAll()
                     .anyRequest().authenticated()
@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .formLogin()
                     .loginPage("/login")
-                    .defaultSuccessUrl("/myprofile")
+                    .defaultSuccessUrl("/userprofile")
                     .permitAll()
                 .and()
                     .logout()
@@ -60,5 +60,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-
 }

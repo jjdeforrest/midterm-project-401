@@ -17,13 +17,9 @@ public class BucketController {
         this.amazonClient = amazonClient;
     }
 
-
     @PostMapping("/uploadFile")
     public RedirectView uploadFile(@RequestParam("file") MultipartFile file) {
-//        System.out.println("Anything?");
-//        System.out.println("what i got "+ file.getSize());
-//        return this.amazonClient.uploadFile(file);
-        
+
         String fileName = this.amazonClient.uploadFile(file);
         System.out.println("fileName = " + fileName);
         return new RedirectView("/");

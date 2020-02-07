@@ -3,21 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
 <body>
 <div th:replace="fragments/header :: navbar"></div>
+<h2>Log In!</h2>
 
-<h2>log in</h2>
-
-<form action="/logged" method="POST">
+<form action="/login" method="POST">
     username <input type="text" name="username">
     <br>
     password <input type="password" name="password">
     <input type="submit">
 </form>
+
+
+<div class="row content">
+    <div th:each="meme : ${allMemes}"  class="col s12 m4 l3">
+        <div class="card hoverable">
+            <div class="card-image">
+                <img th:src="${meme.url}">
+            </div>
+            <div class="card-content">
+                <p th:text="${meme.name}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

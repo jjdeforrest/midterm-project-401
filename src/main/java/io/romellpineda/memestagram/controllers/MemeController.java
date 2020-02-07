@@ -10,6 +10,7 @@ import io.romellpineda.memestagram.service.AmazonClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
@@ -23,6 +24,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.Principal;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MemeController {
@@ -74,7 +77,7 @@ public class MemeController {
             String fileName = this.amazonClient.uploadGeneratedMeme(memeGenerated);
 
             ApplicationUser poster = appUserRepo.findByUsername(p.getName());
-            Meme freshMeme = new Meme(name, fileName);
+            Meme freshMeme = new Meme(poster, name, fileName);
             poster.memes.add(freshMeme);
             appUserRepo.save(poster);
             memeRepo.save(freshMeme);
@@ -86,13 +89,34 @@ public class MemeController {
         return new RedirectView("/generator");
     }
 
-    @PostMapping("/meme/add")
-    public RedirectView addMeme(Principal p, String name, String url) {
-        ApplicationUser poster = appUserRepo.findByUsername(p.getName());
-        Meme freshMeme = new Meme(name, url);
-        poster.memes.add(freshMeme);
-        appUserRepo.save(poster);
-        memeRepo.save(freshMeme);
+    @GetMapping("/meme/edit/{id}")
+    public String editMeme(@PathVariable Long id, Model m) {
+        Optional<Meme> potentialMeme = memeRepo.findById(id);
+        if (potentialMeme.isPresent()) {
+            String memeUrl = potentialMeme.get().url;
+            String memeName = potentialMeme.get().name;
+            m.addAttribute("memeId", id);
+            m.addAttribute("memeUrl", memeUrl);
+            m.addAttribute("memeName", memeName);
+        } else {
+            m.addAttribute("memeInfo", null);
+        }
+        return "editMeme";
+    }
+
+    @PostMapping("/meme/edit/{id}")
+    public RedirectView saveMemeEdit(@PathVariable Long id, String memeName, String memeUrl) {
+        Optional<Meme> retrieveMeme = memeRepo.findById(id);
+        Meme alterMeme = retrieveMeme.get();
+        alterMeme.setName(memeName);
+        memeRepo.save(alterMeme);
+        return new RedirectView("/");
+    }
+
+    @GetMapping("/delete/{id}")
+    public RedirectView deleteMeme(@PathVariable long id) {
+
+        memeRepo.deleteById(id);
         return new RedirectView("/");
     }
 }

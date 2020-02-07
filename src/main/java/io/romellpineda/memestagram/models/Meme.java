@@ -6,21 +6,26 @@ import java.util.Date;
 @Entity
 public class Meme {
 
+    public Long getId() {
+        return id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     public String name;
     public String url;
-    public int likes;
     private Date createdAt;
-    private Date updatedAt;
+//    public int likes;
 
     @ManyToOne(fetch = FetchType.LAZY)
     ApplicationUser appUser;
 
     public Meme() {}
 
-    public Meme(String name, String url) {
+    public Meme(ApplicationUser appUser, String name, String url) {
+        this.appUser = appUser;
         this.name = name;
         this.url = url;
     }
@@ -33,29 +38,29 @@ public class Meme {
         return url;
     }
 
-    public int getLikes() {
-        return likes;
-    }
-
     public Date getCreatedAt() {
         return createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
     }
 
     public ApplicationUser getAppUser() {
         return appUser;
     }
 
+//    public int getLikes() {
+//        return likes;
+//    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+//    public void setLikes(int likes) {
+//        this.likes = likes;
+//    }
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = new Date();
     }
 
-    @PreUpdate
-    protected void onUpdate() {
-        this.updatedAt = new Date();
-    }
 }

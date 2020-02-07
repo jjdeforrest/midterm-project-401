@@ -4,45 +4,37 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>MemeCage</title>
-    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
+    <div th:replace="fragments/header :: navbar"></div>
+    <h1>Welcome to MemeCage!</h1>
 
-<div th:replace="fragments/header :: navbar"></div>
+    <div th:if="${empty}">
+        <h3>sorry, no memes bro</h3>
+    </div>
 
-
-
-<h1>Welcome to MemeCage!</h1>
-
-<div th:if="${empty}">
-    <h3>sorry, no memes bro</h3>
-</div>
-
-<div class="row content">
-    <div th:each="meme : ${allMemes}"  class="col s12 m4 l3">
-        <div class="card hoverable">
-            <div class="card-image">
-                <img th:src="${meme.url}">
-            </div>
-            <div class="card-content">
-                <p th:text="${meme.name}"></p>
-            </div>
-            <div class="card-action">
-                <a href="#">like</a>
+    <div class="row content">
+        <div th:each="meme : ${allMemes}"  class="col s12 m4 l3">
+            <div class="card hoverable">
+                <div class="card-image">
+                    <img th:src="${meme.url}">
+                </div>
+                <div class="card-content">
+                    <p th:text="${meme.name}"></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<ul>
-    <li th:each="meme : ${meme}">
-        <span th:text="${meme}"></span>
-    </li>
-</ul>
+    <ul>
+        <li th:each="meme : ${meme}">
+            <span th:text="${meme}"></span>
+        </li>
+    </ul>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
