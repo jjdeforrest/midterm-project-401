@@ -24,6 +24,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.Principal;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MemeController {
@@ -85,6 +87,30 @@ public class MemeController {
             e.printStackTrace();
         }
         return new RedirectView("/generator");
+    }
+
+    @GetMapping("/meme/edit/{id}")
+    public String editMeme(@PathVariable Long id, Model m) {
+        Optional<Meme> potentialMeme = memeRepo.findById(id);
+        if (potentialMeme.isPresent()) {
+            String memeUrl = potentialMeme.get().url;
+            String memeName = potentialMeme.get().name;
+            m.addAttribute("memeId", id);
+            m.addAttribute("memeUrl", memeUrl);
+            m.addAttribute("memeName", memeName);
+        } else {
+            m.addAttribute("memeInfo", null);
+        }
+        return "editMeme";
+    }
+
+    @PostMapping("/meme/edit/{id}")
+    public RedirectView saveMemeEdit(@PathVariable Long id, String memeName, String memeUrl) {
+        Optional<Meme> retrieveMeme = memeRepo.findById(id);
+        Meme alterMeme = retrieveMeme.get();
+        alterMeme.setName(memeName);
+        memeRepo.save(alterMeme);
+        return new RedirectView("/");
     }
 
     @GetMapping("/delete/{id}")
