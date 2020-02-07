@@ -9,6 +9,20 @@ h2, h1 {
 }
 
 /************************/
+/******* PROFILE ********/
+/************************/
+.user-profile h1, h2{
+    color: black;
+}
+
+img{
+    border-style: double;
+    display: block;
+    margin: 0 auto;
+    border-width: medium;
+}
+
+/************************/
 /****** DEVELOPERS ******/
 /************************/
 
